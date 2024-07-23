@@ -251,8 +251,7 @@ class PlayActivity : AppCompatActivity() {
 
     private fun checkResult(count: Int, map : Map.Entry<Int,String>){
         if(list.size==count){
-            //viewModel.UpdateResult(list,map)
-            viewModel.compareStringWithMapEntry(list,map)
+            viewModel.updateIsResult(list,map)
             list.clear()
             suggestButton.forEach { button->
                 button.isEnabled = false

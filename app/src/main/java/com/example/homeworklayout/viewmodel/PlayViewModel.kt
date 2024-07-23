@@ -53,20 +53,20 @@ class PlayViewModel : ViewModel() {
     fun updateQuestion() {
         resultLiveData.value = entries.random()
     }
-//    fun UpdateResult(listOfStrings: List<String>, mapEntry: Map.Entry<Int, String>){
-//        isResult.value = compareStringWithMapEntry(listOfStrings,mapEntry)
-//    }
-fun compareStringWithMapEntry(listOfStrings: List<String>, mapEntry: Map.Entry<Int, String>) {
+    fun updateIsResult(listOfStrings: List<String>, mapEntry: Map.Entry<Int, String>){
+        isResult.value = compareStringWithMapEntry(listOfStrings,mapEntry)
+    }
+fun compareStringWithMapEntry(listOfStrings: List<String>, mapEntry: Map.Entry<Int, String>) : Boolean {
         val mapValue = mapEntry.value // Lấy giá trị từ Map.Entry
         for (i in listOfStrings.indices) {
             val listChar = listOfStrings[i]
             val mapChar = mapValue[i].toString()
 
             if (listChar != mapChar) {
-                isResult.value = false
+                return false
             }
         }
-        isResult.value = true
+        return true
     }
 
 }
